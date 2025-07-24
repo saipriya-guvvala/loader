@@ -1,0 +1,132 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: #000;
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Title styles */
+.loader-container h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  color: #ff99ff;
+  text-shadow: 2px 2px 8px #ff99ff;
+}
+
+/* Loader box */
+.loader-box {
+  border: 2px solid gold;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Spinning cat gif */
+.cat-spin img {
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+}
+
+/* Loading text */
+.loader-box p {
+  font-size: 1.2rem;
+  color: #9f9;
+}
+
+/* Cat spinner inside box */
+.loader-box .cat {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+/* Cat segment */
+.cat__segment {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3em;
+  height: 2em;
+  transform: translate(-50%, -50%);
+}
+
+.cat__segment:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, white 20%, #e6e6e6 20% 80%, white 80%);
+  border-radius: 0.25em;
+  animation: loop 2s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+  transform: translateX(6em);
+  will-change: transform;
+  animation-delay: calc(0.02s * var(--i));
+}
+
+/* First segment (cat head) */
+.cat__segment:first-of-type {
+  width: 4em;
+  height: 4em;
+  z-index: 1;
+}
+
+.cat__segment:first-of-type:before {
+  background: radial-gradient(0.25em 0.25em at 1.25em 1.6em, white 48%, transparent 50%),
+              radial-gradient(0.75em 0.75em at 1.25em 1.75em, #1a1a1a 48%, transparent 50%),
+              radial-gradient(0.25em 0.25em at 2.75em 1.6em, white 48%, transparent 50%),
+              radial-gradient(0.75em 0.75em at 2.75em 1.75em, #1a1a1a 48%, transparent 50%),
+              radial-gradient(0.9em 0.8em at 1.5em 2.65em, white 48%, transparent 50%),
+              radial-gradient(0.9em 0.8em at 2.5em 2.65em, white 48%, transparent 50%),
+              radial-gradient(1em 0.8em at 1.6em 2.75em, #ccc 48%, transparent 50%),
+              radial-gradient(1em 0.8em at 2.4em 2.75em, #ccc 48%, transparent 50%),
+              radial-gradient(0.75em 0.75em at 50% 2.5em, #e69999 48%, transparent 50%),
+              radial-gradient(4em 3em at 50% 2em, white 48%, transparent 50%),
+              radial-gradient(4em 3em at 50% 2.2em, #ccc 48%, transparent 50%);
+  background-repeat: no-repeat;
+}
+
+/* Last segment (tail) */
+.cat__segment:last-of-type {
+  width: 3em;
+  height: 4em;
+}
+
+.cat__segment:last-of-type:before {
+  background: linear-gradient(90deg, white 20%, #e6e6e6 20% 80%, white 80%) 0 1.5em/3em 0.5em,
+              radial-gradient(3em 2em at top center, #e6e6e6 30%, white 31% 48%, transparent 50%) 0 2em/3em 2em,
+              radial-gradient(1em 4em at 0.5em 0, white 48%, transparent 50%) 0 2em/3em 2em,
+              radial-gradient(1em 4em at 2.5em 0, white 48%, transparent 50%) 0 2em/3em 2em;
+  background-repeat: no-repeat;
+}
+
+/* Animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes loop {
+  from { transform: rotate(0) translateX(6em); }
+  to   { transform: rotate(-1turn) translateX(6em); }
+}

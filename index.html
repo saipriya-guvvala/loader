@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cat Loader Spinner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Loader title -->
+  <div class="loader-container">
+    <h1><span>🐱</span> <span class="title">Cat Loader</span></h1>
+
+  
+    <div class="loader-box">
+    
+      <div class="cat-spin">
+      </div>
+
+      
+      <div class="cat">
+      
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+        <div class="cat__segment"></div>
+      </div>
+
+      <!-- Loading text -->
+      <p>Loading</p>
+    </div>
+  </div>
+
+  <!-- JavaScript for animation delay -->
+  <script>
+    document.querySelectorAll('.cat__segment').forEach((el, i) => {
+      el.style.setProperty('--i', i);
+    });
+  </script>
+
+</body>
+</html>
